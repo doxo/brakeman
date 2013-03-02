@@ -35,6 +35,8 @@ class Brakeman::ControllerAliasProcessor < Brakeman::AliasProcessor
   def process_mixins
     controller = @tracker.controllers[@current_class]
 
+    return unless controller
+
     controller[:includes].each do |i|
       mixin = @tracker.libs[i]
 
